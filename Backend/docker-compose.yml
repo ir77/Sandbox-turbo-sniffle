@@ -1,0 +1,27 @@
+services:
+  dynamodb-local:
+    image: amazon/dynamodb-local:latest
+    container_name: my-dynamodb-local
+    ports:
+      - "8000:8000"
+
+  dynamodb-init:
+    image: amazon/aws-cli:latest
+    container_name: my-dynamodb-init
+    depends_on:
+      - dynamodb-local
+    environment:
+      AWS_ACCESS_KEY_ID: dummy
+      AWS_SECRET_ACCESS_KEY: dummy
+      AWS_REGION: ap-northeast-1
+    entrypoint: >
+      sh -c "
+      echo 'Creating table...';
+      aws dynamodb create-table \
+      --table-name TodoAppTable \
+      --attribute-definitions AttributeName=UserID,AttributeType=S AttributeName=TodoID,AttributeType=S \
+      --key-schema AttributeName=UserID,KeyType=HASH AttributeName=TodoID,KeyType=RANGE \
+      --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 \
+      --endpoint-url http://my-dynamodb-local:8000;
+      echo 'Table created successfully.';
+      "
