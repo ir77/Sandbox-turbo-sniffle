@@ -1,0 +1,1 @@
+import '@testing-library/jest-dom'; // テストファイルでの依存解決用
