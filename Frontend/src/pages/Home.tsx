@@ -21,9 +21,11 @@ function Home() {
     <div>
       Home
     </div>
+    {response &&
     <div>
       {JSON.stringify(response, null, 2)}
     </div>
+    }
   </>;
 }
 
