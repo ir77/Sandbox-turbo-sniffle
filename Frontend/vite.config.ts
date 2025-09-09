@@ -9,4 +9,15 @@ export default defineConfig({
         environment: 'jsdom', // Node.js環境でDOMをシミュレートする
         setupFiles: './src/setupTests.ts',
     },
+    server: {
+        proxy: {
+          // '/api' という文字列で始まるリクエストをプロキシの対象にする
+          '/api': {
+            // 転送先のホストを指定
+            target: 'http://localhost:8080',
+            // オリジンを偽装してCORSエラーを回避
+            changeOrigin: true,
+          },
+      },
+    },
 })
