@@ -1,8 +1,9 @@
 plugins {
-	kotlin("jvm") version "1.9.25"
-	kotlin("plugin.spring") version "1.9.25"
+	kotlin("jvm") version "2.0.21"
+	kotlin("plugin.spring") version "2.0.21"
 	id("org.springframework.boot") version "3.5.6-SNAPSHOT"
 	id("io.spring.dependency-management") version "1.1.7"
+	id("io.gitlab.arturbosch.detekt") version("1.23.8")
 }
 
 group = "com.example"
@@ -37,4 +38,10 @@ kotlin {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+detekt {
+    toolVersion = "1.23.8"
+    config.setFrom(file("config/detekt/detekt.yml"))
+    buildUponDefaultConfig = true
 }

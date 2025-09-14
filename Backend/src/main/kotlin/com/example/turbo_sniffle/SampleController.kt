@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping
 
 @RestController
 @RequestMapping("/api")
-class ApplicationFormController {
-    @GetMapping("/form")
+class SampleController {
+    @GetMapping("/form") @Suppress("FunctionOnlyReturningConstant")
     fun getForm(): String {
         return "This is a sample form response"
     }
 
-    @PostMapping("/form")
+    @PostMapping("/form") @Suppress("FunctionOnlyReturningConstant")
     fun submitForm(): String {
         return "Form submitted successfully"
     }
