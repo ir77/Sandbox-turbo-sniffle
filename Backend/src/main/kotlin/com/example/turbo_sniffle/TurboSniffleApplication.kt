@@ -7,6 +7,6 @@ import org.springframework.boot.runApplication
 class TurboSniffleApplication
 
 fun main(args: Array<String>) {
-	@Suppress("SpreadOperator")
-	runApplication<TurboSniffleApplication>(*args)
+    @Suppress("SpreadOperator")
+    runApplication<TurboSniffleApplication>(*args)
 }
