@@ -28,6 +28,7 @@ function ComponentVSFunction() {
         {/* 親コンポーネントにhooksが登録されてしまい、要素が消えるとクラッシュしてしまう。 */}
         <li><button onClick={() => setShowSecond(!showSecond)}>Toggle Second Cause Crash!</button></li>
         <li>{showSecond && ComponentSample()}</li>
+        {/* ↑↓の独立性は保たれる */}
         <li>{ComponentSample()}</li>
       </ol>
     </>
