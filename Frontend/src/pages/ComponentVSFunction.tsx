@@ -33,7 +33,6 @@ function ComponentVSFunction() {
       </ol>
     </>
   )
-
 }
 
 export default ComponentVSFunction;
