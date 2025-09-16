@@ -9,4 +9,11 @@ class TurboSniffleApplicationTests {
     @Suppress("EmptyFunctionBlock")
     fun contextLoads() {
     }
+
+    @Test
+    fun sampleControllerTest() {
+        val controller = SampleController()
+        assert(controller.getForm() == "This is a sample form response")
+        assert(controller.submitForm() == "Form submitted successfully")
+    }
 }
