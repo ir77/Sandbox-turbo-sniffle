@@ -8,6 +8,19 @@ export default defineConfig({
         globals: true,
         environment: 'jsdom', // Node.js環境でDOMをシミュレートする
         setupFiles: './src/setupTests.ts',
+        coverage: {
+          provider: 'v8', // 'v8' または 'istanbul'
+          reporter: ['text', 'json', 'html'], // レポート形式
+          reportsDirectory: './coverage',          // レポート出力先
+          include: ['src/**/*.{ts,tsx}'],
+          exclude: [
+            'src/main.tsx', // エントリーポイント
+            'src/vite-env.d.ts',
+            'src/**/types.ts', // 型定義ファイル
+            '**/*.config.ts',
+            '**/node_modules/**',
+          ],          
+        },
     },
     server: {
         proxy: {

@@ -35,11 +35,13 @@ function Home() {
     </div>
     {response &&
     <div>
+      <h2>Response from jsonplaceholder.typicode.com</h2>
       <pre>{JSON.stringify(response, null, 2)}</pre>
     </div>
     }
         {response2 &&
     <div>
+      <h2>Response from SpringBoot Backend</h2>
       {response2}
     </div>
     }
