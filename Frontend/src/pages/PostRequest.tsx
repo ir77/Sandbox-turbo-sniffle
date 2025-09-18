@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Home() {
+function PostRequest() {
   const [response, setResponse] = useState<any>(null);
   const [response2, setResponse2] = useState<string | null>(null);
 
@@ -49,4 +49,4 @@ function Home() {
   </>;
 }
 
-export default Home;
+export default PostRequest;

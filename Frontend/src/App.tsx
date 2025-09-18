@@ -1,5 +1,5 @@
 import ViteDefault from "./pages/ViteDefault"
-import Home from "./pages/Home"
+import PostRequest from "./pages/PostRequest"
 import ComponentVSFunction from "./pages/ComponentVSFunction"
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <ViteDefault />
-      <Home />
+      <PostRequest />
       <ComponentVSFunction />
     </>
   )
