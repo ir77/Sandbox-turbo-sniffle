@@ -4,21 +4,17 @@ import App from './App';
 
 describe('App', async () => {
   beforeEach(() => {
-    vi.spyOn(window, 'fetch').mockImplementation((url) => {
+    vi.spyOn(window, 'fetch').mockImplementation(async (url) => {
       switch (url) {
         case '/api/form':
-          return Promise.resolve(
-            new Response('Mocked response from backend', { status: 200 })
-          );
+          return new Response('Mocked response from backend', { status: 200 });
         case 'https://jsonplaceholder.typicode.com/posts':
-          return Promise.resolve(
-            new Response(JSON.stringify({ id: 101 }), {
-              status: 201,
-              headers: { 'Content-Type': 'application/json' },
-            })
-          );
+          return new Response(JSON.stringify({ id: 101 }), {
+            status: 201,
+            headers: { 'Content-Type': 'application/json' },
+          });
         default:
-          return Promise.reject(new Error(`Unhandled request: ${url}`));
+          throw new Error(`Unhandled request: ${url}`);
       }
     });
   });
