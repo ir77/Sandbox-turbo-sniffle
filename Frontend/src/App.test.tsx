@@ -29,19 +29,11 @@ describe('App', async () => {
     vi.mocked(window.fetch).mockRestore();
   });
 
-  it('renders without crashing', () => {
+  it('renders without crashing', async () => {
     render(<App />);
     expect(screen.getByText(/vite \+ react/i)).toBeInTheDocument();
 
-    // const backendResponseElement = await screen.findByText(
-    //   'Mocked response from backend'
-    // );
-
-    // // レスポンスが表示されたことを確認
-    // expect(backendResponseElement).toBeInTheDocument();
-
-    // // 外部APIのレスポンスが表示されることも確認（例として）
-    // const externalResponseElement = await screen.findByText(/101/);
-    // expect(externalResponseElement).toBeInTheDocument();
+    expect(screen.findByText('Mocked response from backend'))
+      .resolves.toBeInTheDocument();
   });
 });
