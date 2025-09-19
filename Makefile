@@ -13,3 +13,8 @@ test:
 	(cd Frontend && npm install && npm test)
 	@echo "===> Running e2e tests..."
 	(cd E2ETests && npm install && npm test)
+
+// TODO
+// fix: frontend test
+// feat: test-frontend, test-backend, test-e2e
+// feat: run-backend, run-frontend and test-e2e
