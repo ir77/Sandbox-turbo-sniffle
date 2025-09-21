@@ -1,4 +1,10 @@
-.PHONY: run run-backend run-frontend test
+.PHONY: run run-backend run-frontend test clean
+
+clean:
+	@echo "===> Killing process on port 8080..."
+	@lsof -t -i:8080 | xargs -r kill -9
+	@echo "===> Killing process on port 5173..."
+	@lsof -t -i:5173 | xargs -r kill -9
 
 run:
 	@echo "===> Starting backend and frontend servers concurrently..."
@@ -14,7 +20,7 @@ test:
 	@echo "===> Running e2e tests..."
 	(cd E2ETests && npm install && npm test)
 
-// TODO
-// fix: frontend test
-// feat: test-frontend, test-backend, test-e2e
-// feat: run-backend, run-frontend and test-e2e
+# TODO
+# fix: frontend test
+# feat: test-frontend, test-backend, test-e2e
+# feat: run-backend, run-frontend and test-e2e
