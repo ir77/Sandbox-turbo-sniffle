@@ -11,7 +11,7 @@ function App() {
       <nav>
         <ul style={{ display: 'flex', listStyle: 'none', padding: 0 }}>
           <li style={{ margin: '0 10px' }}>
-            <Link to="/">ViteDefault</Link>
+            <Link to="/">WIP</Link>
           </li>
           <li style={{ margin: '0 10px' }}>
             <Link to="/post-request">PostRequest</Link>
@@ -20,16 +20,17 @@ function App() {
             <Link to="/component-vs-function">ComponentVSFunction</Link>
           </li>
           <li style={{ margin: '0 10px' }}>
-            <Link to="/wip">WIP</Link>
+            <Link to="/vite-default">ViteDefault</Link>
           </li>
         </ul>
       </nav>
 
       <Routes>
-        <Route path="/" element={<ViteDefault />} />
+        <Route path="/" element={<Wip />} />
+        <Route path="/wip" element={<Wip />} />
         <Route path="/post-request" element={<PostRequest />} />
         <Route path="/component-vs-function" element={<ComponentVSFunction />} />
-        <Route path="/wip" element={<Wip />} />
+        <Route path="/vite-default" element={<ViteDefault />} />
       </Routes>
     </>
   )
