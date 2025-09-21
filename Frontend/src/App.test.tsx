@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
+import { userEvent } from '@testing-library/user-event';
 import App from './App';
 
 describe('App', async () => {
@@ -26,13 +27,23 @@ describe('App', async () => {
   });
 
   it('renders without crashing', async () => {
+    const user = userEvent.setup();
     render(
       <MemoryRouter>
         <App />
       </MemoryRouter>,
     );
-    expect(screen.getByText(/vite \+ react/i)).toBeInTheDocument();
 
-    expect(await screen.findByText('Mocked response from backend')).toBeInTheDocument();
+    // click the "vite-default" navigation item
+    await user.click(screen.getByText('ViteDefault'));
+
+    expect(await screen.findByText(/vite \+ react/i)).toBeInTheDocument();
+
+    // click the "PostRequest" navigation item
+    await user.click(screen.getByText('PostRequest'));
+
+    expect(
+      await screen.findByText('Mocked response from backend'),
+    ).toBeInTheDocument();
   });
 });
