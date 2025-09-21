@@ -1,7 +1,7 @@
 import ViteDefault from "./pages/ViteDefault";
 import PostRequest from "./pages/PostRequest";
 import ComponentVSFunction from "./pages/ComponentVSFunction";
-import Wip from "./pages/wip";
+import Wip from "./pages/Wip";
 import { Routes, Route, NavLink } from "react-router-dom";
 import React from "react";
 
