@@ -35,14 +35,14 @@ function PostRequest() {
     </div>
     {response &&
     <div>
-      <h2>Response from jsonplaceholder.typicode.com</h2>
-      <pre>{JSON.stringify(response, null, 2)}</pre>
+      <span>Response from jsonplaceholder.typicode.com: </span>
+      <strong>{JSON.stringify(response)}</strong>
     </div>
     }
         {response2 &&
     <div>
-      <h2>Response from SpringBoot Backend</h2>
-      {response2}
+      <span>Response from SpringBoot Backend: </span>
+      <strong>{response2}</strong>
     </div>
     }
 
