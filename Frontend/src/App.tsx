@@ -2,7 +2,7 @@ import ViteDefault from "./pages/ViteDefault"
 import PostRequest from "./pages/PostRequest"
 import ComponentVSFunction from "./pages/ComponentVSFunction"
 import Wip from "./pages/wip"
-import { Routes, Route, Link } from "react-router-dom"
+import { Routes, Route, NavLink } from "react-router-dom"
 
 function App() {
 
@@ -11,16 +11,16 @@ function App() {
       <nav className="main-nav">
         <ul>
           <li>
-            <Link to="/">WIP</Link>
+            <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>WIP</NavLink>
           </li>
           <li>
-            <Link to="/post-request">PostRequest</Link>
+            <NavLink to="/post-request" className={({ isActive }) => isActive ? "active" : ""}>PostRequest</NavLink>
           </li>
           <li>
-            <Link to="/component-vs-function">ComponentVSFunction</Link>
+            <NavLink to="/component-vs-function" className={({ isActive }) => isActive ? "active" : ""}>ComponentVSFunction</NavLink>
           </li>
           <li>
-            <Link to="/vite-default">ViteDefault</Link>
+            <NavLink to="/vite-default" className={({ isActive }) => isActive ? "active" : ""}>ViteDefault</NavLink>
           </li>
         </ul>
       </nav>
