@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 
 describe('App', async () => {
@@ -25,7 +26,11 @@ describe('App', async () => {
   });
 
   it('renders without crashing', async () => {
-    render(<App />);
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>,
+    );
     expect(screen.getByText(/vite \+ react/i)).toBeInTheDocument();
 
     expect(await screen.findByText('Mocked response from backend')).toBeInTheDocument();
