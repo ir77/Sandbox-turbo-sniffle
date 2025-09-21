@@ -8,30 +8,32 @@ function App() {
 
   return (
     <>
-      <nav>
-        <ul style={{ display: 'flex', listStyle: 'none', padding: 0 }}>
-          <li style={{ margin: '0 10px' }}>
+      <nav className="main-nav">
+        <ul>
+          <li>
             <Link to="/">WIP</Link>
           </li>
-          <li style={{ margin: '0 10px' }}>
+          <li>
             <Link to="/post-request">PostRequest</Link>
           </li>
-          <li style={{ margin: '0 10px' }}>
+          <li>
             <Link to="/component-vs-function">ComponentVSFunction</Link>
           </li>
-          <li style={{ margin: '0 10px' }}>
+          <li>
             <Link to="/vite-default">ViteDefault</Link>
           </li>
         </ul>
       </nav>
 
-      <Routes>
-        <Route path="/" element={<Wip />} />
-        <Route path="/wip" element={<Wip />} />
-        <Route path="/post-request" element={<PostRequest />} />
-        <Route path="/component-vs-function" element={<ComponentVSFunction />} />
-        <Route path="/vite-default" element={<ViteDefault />} />
-      </Routes>
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Wip />} />
+          <Route path="/wip" element={<Wip />} />
+          <Route path="/post-request" element={<PostRequest />} />
+          <Route path="/component-vs-function" element={<ComponentVSFunction />} />
+          <Route path="/vite-default" element={<ViteDefault />} />
+        </Routes>
+      </main>
     </>
   )
 }
