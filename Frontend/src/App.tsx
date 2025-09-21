@@ -1,7 +1,7 @@
 import ViteDefault from "./pages/ViteDefault";
 import PostRequest from "./pages/PostRequest";
 import ComponentVSFunction from "./pages/ComponentVSFunction";
-import Wip from "./pages/Wip";
+import ComplexPostRequest from "./pages/ComplexPostRequest";
 import { Routes, Route, NavLink } from "react-router-dom";
 import React from "react";
 
@@ -28,7 +28,7 @@ function App() {
     <>
       <nav className="main-nav">
         <ul>
-          <NavigationItem to="/">WIP</NavigationItem>
+          <NavigationItem to="/">ComplexPostRequest</NavigationItem>
           <NavigationItem to="/post-request">PostRequest</NavigationItem>
           <NavigationItem to="/component-vs-function">
             ComponentVSFunction
@@ -39,8 +39,7 @@ function App() {
 
       <main className="main-content">
         <Routes>
-          <Route path="/" element={<Wip />} />
-          <Route path="/wip" element={<Wip />} />
+          <Route path="/" element={<ComplexPostRequest />} />
           <Route path="/post-request" element={<PostRequest />} />
           <Route
             path="/component-vs-function"
