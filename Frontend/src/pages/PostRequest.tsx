@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 function PostRequest() {
-  const [response, setResponse] = useState<any>(null);
-  const [response2, setResponse2] = useState<string | null>(null);
+  const [sampleResponse, setSampleResponse] = useState<any>(null);
+  const [backendResponse, setBackendResponse] = useState<string | null>(null);
 
   const handlePostRequest = async () => {
     const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
@@ -12,7 +12,7 @@ function PostRequest() {
       }
     })
     const data = await response.json()
-    setResponse(data)
+    setSampleResponse(data)
   }
 
   const handlePostRequestToBackend = async () => {
@@ -20,7 +20,7 @@ function PostRequest() {
       method: 'POST',
     })
     const data = await response.text()
-    setResponse2(data)
+    setBackendResponse(data)
   }
 
 
@@ -33,16 +33,16 @@ function PostRequest() {
     <div>
       Home
     </div>
-    {response &&
+    {sampleResponse &&
     <div>
       <span>Response from jsonplaceholder.typicode.com: </span>
-      <strong>{JSON.stringify(response)}</strong>
+      <strong>{JSON.stringify(sampleResponse)}</strong>
     </div>
     }
-        {response2 &&
+        {backendResponse &&
     <div>
       <span>Response from SpringBoot Backend: </span>
-      <strong>{response2}</strong>
+      <strong>{backendResponse}</strong>
     </div>
     }
 
