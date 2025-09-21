@@ -29,23 +29,30 @@ function PostRequest() {
     handlePostRequestToBackend()
   }, []);
 
+  const JsonplaceholderComponent = () => {
+    return <>
+      <div>
+        <span>Response from jsonplaceholder.typicode.com: </span>
+        <strong>{JSON.stringify(sampleResponse)}</strong>
+      </div>
+    </>
+  }
+
+  const SpringBootBackendComponent = () => {
+    return <>
+      <div>
+        <span>Response from SpringBoot Backend: </span>
+        <strong>{backendResponse}</strong>
+      </div>
+    </>
+  }
+
   return <>
     <div>
       Home
     </div>
-    {sampleResponse &&
-    <div>
-      <span>Response from jsonplaceholder.typicode.com: </span>
-      <strong>{JSON.stringify(sampleResponse)}</strong>
-    </div>
-    }
-        {backendResponse &&
-    <div>
-      <span>Response from SpringBoot Backend: </span>
-      <strong>{backendResponse}</strong>
-    </div>
-    }
-
+    {sampleResponse && <JsonplaceholderComponent />}
+    {backendResponse && <SpringBootBackendComponent />}
   </>;
 }
 
