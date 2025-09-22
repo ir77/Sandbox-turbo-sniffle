@@ -7,9 +7,9 @@ describe('ComplexPostRequest', () => {
   beforeEach(() => {
     vi.spyOn(window, 'fetch').mockImplementation(async (url) => {
       switch (url) {
-        case '/api/complex-form':
-          return new Response(JSON.stringify({ success: true, id: 123 }), {
-            status: 200,
+        case 'https://jsonplaceholder.typicode.com/posts':
+          return new Response(JSON.stringify({ id: 101, title: 'Test Post', body: 'Test Body', userId: 1 }), {
+            status: 201,
             headers: { 'Content-Type': 'application/json' },
           });
         default:
