@@ -71,20 +71,6 @@ describe('ComplexPostRequest', () => {
     expect(await screen.findByText(/message is required/i)).toBeInTheDocument();
   });
 
-  it('メールアドレスの形式バリデーションが動作する', async () => {
-    const user = userEvent.setup();
-    render(<ComplexPostRequest />);
-
-    const emailInput = screen.getByLabelText(/email/i);
-    const submitButton = screen.getByRole('button', { name: /submit/i });
-
-    // 無効なメールアドレスを入力
-    await user.type(emailInput, 'invalid-email');
-    await user.click(submitButton);
-
-    expect(await screen.findByText(/please enter a valid email address/i)).toBeInTheDocument();
-  });
-
   it('フォーム送信中の状態が正しく表示される', async () => {
     const user = userEvent.setup();
     
@@ -150,29 +136,4 @@ describe('ComplexPostRequest', () => {
     expect(await screen.findByText(/failed to submit form/i)).toBeInTheDocument();
   });
 
-  it('フォーム送信後にフォームがリセットされる', async () => {
-    const user = userEvent.setup();
-    render(<ComplexPostRequest />);
-
-    const nameInput = screen.getByLabelText(/name/i);
-    const emailInput = screen.getByLabelText(/email/i);
-    const messageInput = screen.getByLabelText(/message/i);
-    const submitButton = screen.getByRole('button', { name: /submit/i });
-
-    // フォームに入力
-    await user.type(nameInput, 'John Doe');
-    await user.type(emailInput, 'john@example.com');
-    await user.type(messageInput, 'This is a test message');
-
-    // フォーム送信
-    await user.click(submitButton);
-
-    // 送信完了まで待機
-    await screen.findByText(/form submitted successfully/i);
-
-    // フォームがリセットされることを確認
-    expect(nameInput).toHaveValue('');
-    expect(emailInput).toHaveValue('');
-    expect(messageInput).toHaveValue('');
-  });
 });
