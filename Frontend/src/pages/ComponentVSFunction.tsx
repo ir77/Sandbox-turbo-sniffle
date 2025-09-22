@@ -15,6 +15,7 @@ function ComponentVSFunction() {
 
   return (
     <>
+      <h1>Component VS Function</h1>
       <h2>ComponentSample as Component</h2>
       <ol>
         <li><button onClick={() => setShowFirst(!showFirst)}>Toggle First</button></li>

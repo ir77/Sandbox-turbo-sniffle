@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { userEvent } from '@testing-library/user-event';
 import App from './App';
 
-describe('App', async () => {
+describe('App - ルーティングテスト', async () => {
   beforeEach(() => {
     vi.spyOn(window, 'fetch').mockImplementation(async (url) => {
       switch (url) {
@@ -26,7 +26,7 @@ describe('App', async () => {
     vi.mocked(window.fetch).mockRestore();
   });
 
-  it('renders without crashing', async () => {
+  it('各ページに正常にルーティングされる', async () => {
     const user = userEvent.setup();
     render(
       <MemoryRouter>
@@ -34,16 +34,35 @@ describe('App', async () => {
       </MemoryRouter>,
     );
 
-    // click the "vite-default" navigation item
-    await user.click(screen.getByText('ViteDefault'));
+    // ComplexPostRequestページ（デフォルト）が表示される
+    expect(screen.getByText('ComplexPostRequest')).toBeInTheDocument();
 
+    // ViteDefaultページに移動
+    await user.click(screen.getByText('ViteDefault'));
     expect(await screen.findByText(/vite \+ react/i)).toBeInTheDocument();
 
-    // click the "PostRequest" navigation item
+    // PostRequestページに移動
     await user.click(screen.getByText('PostRequest'));
-
     expect(
       await screen.findByText('Mocked response from backend'),
     ).toBeInTheDocument();
+
+    // ComponentVSFunctionページに移動
+    await user.click(screen.getByText('ComponentVSFunction'));
+    expect(await screen.findByText(/component vs function/i)).toBeInTheDocument();
+  });
+
+  it('ナビゲーションリンクが正常に表示される', () => {
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>,
+    );
+
+    // すべてのナビゲーションリンクが表示される
+    expect(screen.getByText('ComplexPostRequest')).toBeInTheDocument();
+    expect(screen.getByText('PostRequest')).toBeInTheDocument();
+    expect(screen.getByText('ComponentVSFunction')).toBeInTheDocument();
+    expect(screen.getByText('ViteDefault')).toBeInTheDocument();
   });
 });
