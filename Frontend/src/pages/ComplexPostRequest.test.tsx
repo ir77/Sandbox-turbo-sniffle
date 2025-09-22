@@ -25,7 +25,6 @@ describe('ComplexPostRequest', () => {
   it('複数の入力フィールドを持つフォームが表示される', () => {
     render(<ComplexPostRequest />);
 
-    // フォームの入力フィールドが表示されることを確認
     expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/message/i)).toBeInTheDocument();
