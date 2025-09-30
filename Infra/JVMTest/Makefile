@@ -1,4 +1,4 @@
-.PHONY: build run-serial
+.PHONY: build run-serial run-g1gc
 
 build:
 	docker build -t gc-checker .
