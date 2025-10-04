@@ -6,13 +6,13 @@ clean:
 	@echo "===> Killing process on port 5173..."
 	@lsof -t -i:5173 | xargs -r kill -9
 
-run:
+run: clean
 	@echo "===> Starting backend and frontend servers concurrently..."
 	(cd Backend && ./gradlew bootRun) & \
 	(cd Frontend && npm run dev) & \
 	wait
 
-test:
+test: clean
 	@echo "===> Running backend tests..."
 	(cd Backend && ./gradlew test)
 	@echo "===> Running frontend tests..."
