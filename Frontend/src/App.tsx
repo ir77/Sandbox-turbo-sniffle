@@ -26,7 +26,7 @@ const NavigationItem = ({ to, children }: NavigationItemProps) => {
 function App() {
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full bg-[#242424] py-2 z-[1000] text-white">
+  <nav className="fixed top-0 left-0 w-full bg-sidebar text-sidebar-foreground py-2 z-[1000]">
         <ul className="flex items-center justify-center gap-6 m-0 list-none p-0">
           <NavigationItem to="/">ComplexPostRequest</NavigationItem>
           <NavigationItem to="/post-request">PostRequest</NavigationItem>
