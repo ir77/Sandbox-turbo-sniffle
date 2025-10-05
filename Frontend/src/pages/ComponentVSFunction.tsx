@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator";
 
 function ComponentSample() {
   const [count, setCount] = useState(0);
@@ -37,6 +38,7 @@ function ComponentVSFunction() {
           </ol>
         </CardContent>
       </Card>
+      <Separator className="my-4" />
       <Card>
         <CardHeader>
           <CardTitle>ComponentSample as Function</CardTitle>
