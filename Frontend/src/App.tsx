@@ -26,8 +26,8 @@ const NavigationItem = ({ to, children }: NavigationItemProps) => {
 function App() {
   return (
     <>
-      <nav className="main-nav">
-        <ul>
+      <nav className="fixed top-0 left-0 w-full bg-[#242424] py-2 z-[1000] text-white">
+        <ul className="flex items-center justify-center gap-6 m-0 list-none p-0">
           <NavigationItem to="/">ComplexPostRequest</NavigationItem>
           <NavigationItem to="/post-request">PostRequest</NavigationItem>
           <NavigationItem to="/component-vs-function">
@@ -37,7 +37,7 @@ function App() {
         </ul>
       </nav>
 
-      <main className="main-content">
+      <main className="max-w-7xl mx-auto p-8 pt-[60px] text-center">
         <Routes>
           <Route path="/" element={<ComplexPostRequest />} />
           <Route path="/post-request" element={<PostRequest />} />
