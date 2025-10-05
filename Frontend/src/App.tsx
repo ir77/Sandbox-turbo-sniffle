@@ -12,7 +12,7 @@ type NavigationItemProps = {
 
 const NavigationItem = ({ to, children }: NavigationItemProps) => {
   const navLinkClassName = ({ isActive }: { isActive: boolean }) =>
-    isActive ? "active" : "";
+    isActive ? "font-bold opacity-100" : "font-normal opacity-80";
 
   return (
     <li>
