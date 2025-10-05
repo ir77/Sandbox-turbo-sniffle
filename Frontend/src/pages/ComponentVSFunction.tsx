@@ -1,11 +1,12 @@
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 function ComponentSample() {
   const [count, setCount] = useState(0);
   return (
-    <button onClick={() => setCount(count + 1)}>
+    <Button onClick={() => setCount(count + 1)}>
       Count: {count}
-    </button>
+    </Button>
   );
 }
 
