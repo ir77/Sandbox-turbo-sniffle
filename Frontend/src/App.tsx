@@ -12,7 +12,10 @@ type NavigationItemProps = {
 
 const NavigationItem = ({ to, children }: NavigationItemProps) => {
   const navLinkClassName = ({ isActive }: { isActive: boolean }) =>
-    isActive ? "font-bold opacity-100" : "font-normal opacity-80";
+    [
+      "hover:opacity-100 hover:underline focus-visible:underline",
+      isActive ? "font-bold opacity-100" : "font-normal opacity-80",
+    ].join(" ");
 
   return (
     <li>
