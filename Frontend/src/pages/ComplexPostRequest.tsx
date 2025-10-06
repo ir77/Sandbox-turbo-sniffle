@@ -133,6 +133,7 @@ function ComplexPostRequest() {
             name="email" 
             value={formData.email}
             onChange={handleInputChange}
+            className="invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500"
           />
           {errors.email && <div style={{ color: 'red' }}>{errors.email}</div>}
         </div>
