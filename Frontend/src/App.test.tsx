@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import { userEvent } from '@testing-library/user-event';
 import App from './App';

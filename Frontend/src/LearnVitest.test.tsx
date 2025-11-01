@@ -1,4 +1,3 @@
-import { expect, test, vi, afterEach } from 'vitest'
 import { fetchUser } from './utils/api';
 
 // '../utils/api'モジュールをMockする（importより前に記述する必要がある）
