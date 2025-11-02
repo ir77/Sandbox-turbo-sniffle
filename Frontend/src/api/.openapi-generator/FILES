@@ -1,0 +1,6 @@
+.openapi-generator-ignore
+apis/SampleControllerApi.ts
+apis/index.ts
+docs/SampleControllerApi.md
+index.ts
+runtime.ts
