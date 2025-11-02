@@ -48,7 +48,7 @@ describe('App - ルーティングテスト', async () => {
 
     // ComponentVSFunctionページに移動
     await user.click(screen.getByText('ComponentVSFunction'));
-    expect(await screen.findByText(/component vs function/i)).toBeInTheDocument();
+    expect(await screen.findByText(/Component vs Function/i)).toBeInTheDocument();
   });
 
   it('ナビゲーションリンクが正常に表示される', () => {

@@ -23,6 +23,7 @@ function ComponentVSFunction() {
 
   return (
     <>
+      <h1>Component vs Function</h1>
       <Card>
         <CardHeader>
           <CardTitle>ComponentSample as Component</CardTitle>
