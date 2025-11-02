@@ -1,8 +1,13 @@
-import { useEffect, useState } from "react";
+import { Configuration, SampleControllerApi } from "@/api";
+import { useEffect, useMemo, useState } from "react";
 
 function PostRequest() {
   const [sampleResponse, setSampleResponse] = useState<any>(null);
   const [backendResponse, setBackendResponse] = useState<string | null>(null);
+  const sampleControllerApi = useMemo(
+    () => new SampleControllerApi(new Configuration({ basePath: "" })),
+    []
+  );
 
   const handlePostRequest = async () => {
     const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
@@ -16,13 +21,9 @@ function PostRequest() {
   }
 
   const handlePostRequestToBackend = async () => {
-    const response = await fetch("/api/form", {
-      method: 'POST',
-    })
-    const data = await response.text()
+    const data = await sampleControllerApi.submitForm();
     setBackendResponse(data)
   }
-
 
   useEffect(() => {
     handlePostRequest()
