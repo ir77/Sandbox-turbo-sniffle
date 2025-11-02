@@ -19,3 +19,8 @@ test: clean
 	(cd Frontend && npm install && npm test -- --watch=false)
 	@echo "===> Running e2e tests..."
 	(cd E2ETests && npm install && npm test)
+
+update-openapi:
+	@echo "===> Generating OpenAPI client code..."
+	(cd Frontend && npx @openapitools/openapi-generator-cli generate -i http://localhost:8080/v3/api-docs -g typescript-fetch -o src/api --additional-properties=supportsES6=true)
+
