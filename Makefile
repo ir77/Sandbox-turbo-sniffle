@@ -16,6 +16,6 @@ test: clean
 	@echo "===> Running backend tests..."
 	(cd Backend && ./gradlew test)
 	@echo "===> Running frontend tests..."
-	(cd Frontend && npm install && npm test)
+	(cd Frontend && npm install && npm test -- --watch=false)
 	@echo "===> Running e2e tests..."
 	(cd E2ETests && npm install && npm test)
