@@ -1,5 +1,5 @@
-import { SampleControllerApi } from "./apis";
-import { Configuration } from "./runtime";
+import { SampleControllerApi } from "./generated/apis/SampleControllerApi";
+import { Configuration } from "./generated/runtime";
 
 // Share a single configured instance so components do not repeat boilerplate setup.
 const configuration = new Configuration({

@@ -22,5 +22,4 @@ test: clean
 
 update-openapi:
 	@echo "===> Generating OpenAPI client code..."
-	(cd Frontend && npx @openapitools/openapi-generator-cli generate -i http://localhost:8080/v3/api-docs -g typescript-fetch -o src/api --additional-properties=supportsES6=true)
-
+	(cd Frontend && npx @openapitools/openapi-generator-cli generate -i http://localhost:8080/v3/api-docs -g typescript-fetch -o src/api/generated --additional-properties=supportsES6=true)
